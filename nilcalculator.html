@@ -1,3 +1,62 @@
+ <!DOCTYPE html>
 <html>
-
+<head>
+  <title>THE NIL CALCULATOR</title>
+</head>
+<body>
+  <form method="post" name="calc" oninput=
+  "x.value =(parseInt(a.value)/parseInt(b.value))*100,
+  y.value = parseInt(c.value)-parseInt(b.value),
+  z.value = ((parseInt(a.value)+parseInt(y.value))/(parseInt(b.value)+parseInt(y.value)))*100,
+  p.value = check(a.value, (b.value)+(y.value))">
+    <fieldset>
+      <legend>INPUT</legend>
+      Number of hours attended till now : <input type="number" name="hours" value="5" id="a">
+      Out of :<input type="number" name="total" value="10" id="b">
+    </fieldset>
+    <fieldset>
+      <legend>OUTPUT</legend>
+      <b>Current Percentage : <output name="x" for="a b">--</output></b><br><br>
+      Total number of hours : <input type="number" id="c" name="final" value="40"><br>
+      Remaining number of classes :<output name="y" for="a b c">--</output><br>
+      Maximum attendance that could be obtained :<output name="z" for="a b c">--</output><br>
+      Least no of classes that should be attended for avoiding FA :<output name="p" for="a b c">--</output>
+    </fieldset>
+  </form>
+  <script lang="Javascript">
+  funtion check(var aa, var xx){
+    if((aa/xx)>=.75){
+      return 0;
+    }
+    else{
+      var yy = (.75*xx)-aa;
+      return yy;
+    }
+  }
+  </script>
+  <!--
+  <script lang="Javascript">
+  var x = document.forms["calc"]["hours"].value;
+  var y = document.forms["calc"]["total"].value;
+  function run(){
+    document.write("Total number of classes :", x, "<br>");
+    document.write("No of classes attended  :", y, "<br>");
+    curr_att();
+    document
+    rem_class();
+    return true;
+  }
+  function curr_att(){
+    var z = (x/y)*100;
+    document.write("Current Attendance : ", z, "%", "<br>");
+    return true;
+  }
+  function rem_class(){
+    var z = 40-y;
+    document.write("Remaining classes : ", z, "<br>");
+    return true;
+  }
+  </script>
+-->
+</body>
 </html>
