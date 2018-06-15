@@ -7,28 +7,81 @@
 <body>
   <h3>This is a simple attendance calculator</h3>
   <form method="post" name="calc" oninput=
-  "x.value =(parseInt(a.value)/parseInt(b.value))*100,
+  "validate_form(),validate_form2(),
+  x.value =(parseInt(a.value)/parseInt(b.value))*100,
   y.value = parseInt(c.value)-parseInt(b.value),
   z.value = ((parseInt(a.value)+parseInt(y.value))/(parseInt(b.value)+parseInt(y.value)))*100,
-  p.value = (.75*(parseInt(b.value)+parseInt(y.value)))-parseInt(a.value)
-  q.value = (parseInt(y.value)- parseInt(p.value))">
-  <h6><font color="red">NOTE: Change any values to START loading the results</font></h6><br>
+  check_need(),check_bunk(),fa_calculate()">
+  <h6><font color="red">NOTE: Change any of the values in the INPUT section to LOAD the results</font></h6><br>
     <fieldset>
       <legend>INPUT</legend>
       Number of hours attended till now : <input type="number" name="hours" value="30" id="a">
       Out of :<input type="number" name="total" value="35" id="b">
+      Total number of periods : <input type="number" id="c" name="final" value="40"><br>
+      <!--input type="button" name="submit" value="submit" onclick="check()"-->
     </fieldset>
     <fieldset>
       <legend>OUTPUT</legend>
       <b>Current Percentage : <output name="x" for="a b">--</output></b><br><br>
-      <h6>Enter the approximate number of classes likely to be taken for the subject in this semester</h6>
-      Total number of periods : <input type="number" id="c" name="final" value="40"><br>
       Remaining number of classes :<output name="y" for="a b c">--</output><br><br>
       Maximum attendance that could be obtained :<output name="z" for="a b c">--</output><br><br>
-      Least no of classes that should be attended for avoiding FA :<output name="p" for="a b c">--</output><br><br>
-      <b>No of classes that could be bunked without FA-ing :<output name="q" for="a b c">--</output></b>
+      Least no of classes that should be attended for avoiding FA :<output name="e">--</output><br><br>
+      <b>No of classes that could be bunked without FA-ing :<output name="f">--</output></b><br><br>
+      <i>STATUS : <output name="g">--</output></i>
     </fieldset>
   </form>
+  <script lang="Javascript">
+  function validate_form(){
+    if(document.forms["calc"]["hours"].value>document.forms["calc"]["total"].value){
+      alert("The no. of Hours attended should be less than Total hours taken");
+    }
+    return true;
+  }
+  function validate_form2(){
+    if(document.forms["calc"]["final"].value<document.forms["calc"]["total"].value){
+      alert("The Total Hours in a sem should be less than Total hours taken");
+    }
+    return true;
+  }
+  var e, f, g;
+  function check_need(){
+    e = (document.forms["calc"]["hours"].value)/(document.forms["calc"]["final"].value);
+    if(e>=.75){
+      f=0;
+      document.forms["calc"]["e"].value=f;
+    }
+    else{
+      f = (.75*(document.forms["calc"]["final"].value))-(document.forms["calc"]["hours"].value);
+      document.forms["calc"]["e"].value=f;
+    }
+    return true;
+  }
+
+  function check_bunk(){
+    e = parseInt((document.forms["calc"]["final"].value)-(document.forms["calc"]["total"].value));
+    g = e-f;
+    if(e<=f){
+      document.forms["calc"]["f"].value=0;
+    }
+    else{
+      document.forms["calc"]["f"].value=g;
+    }
+    return true;
+  }
+  function fa_calculate(){
+    e = parseInt((document.forms["calc"]["final"].value)-(document.forms["calc"]["total"].value));
+    if(f==0){
+      document.forms["calc"]["g"].value="You are already in the Safe-zone, no need to enter anymore classes.";
+    }
+    else if(f>e){
+      document.forms["calc"]["g"].value="You will get FA anyways, Good Luck next time.";
+    }
+    else{
+      document.forms["calc"]["g"].value="You can be in the Safe-zone.";
+    }
+    return true;
+  }
+  </script>
   <!--
   <script lang="Javascript">
   var x = document.forms["calc"]["hours"].value;
