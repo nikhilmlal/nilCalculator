@@ -2,13 +2,17 @@
 <html>
 <head>
   <title>THE NIL CALCULATOR</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbWLcWW1sLuhaGLn3RLHTV8mBr_xVVnFgJND685DI2TWoGz23Xiw" />
 </head>
 <body>
+  <h3>This is a simple attendance calculator</h3>
   <form method="post" name="calc" oninput=
   "x.value =(parseInt(a.value)/parseInt(b.value))*100,
   y.value = parseInt(c.value)-parseInt(b.value),
   z.value = ((parseInt(a.value)+parseInt(y.value))/(parseInt(b.value)+parseInt(y.value)))*100,
-  p.value = (.75*(parseInt(b.value)+parseInt(y.value)))-parseInt(a.value)">
+  p.value = (.75*(parseInt(b.value)+parseInt(y.value)))-parseInt(a.value)
+  q.value = (parseInt(y.value)- parseInt(p.value))">
+  <h6><font color="red">NOTE: Change any values to START loading the results</font></h6><br>
     <fieldset>
       <legend>INPUT</legend>
       Number of hours attended till now : <input type="number" name="hours" value="30" id="a">
@@ -17,10 +21,12 @@
     <fieldset>
       <legend>OUTPUT</legend>
       <b>Current Percentage : <output name="x" for="a b">--</output></b><br><br>
-      Total number of hours : <input type="number" id="c" name="final" value="40"><br>
-      Remaining number of classes :<output name="y" for="a b c">--</output><br>
-      Maximum attendance that could be obtained :<output name="z" for="a b c">--</output><br>
-      Least no of classes that should be attended for avoiding FA :<output name="p" for="a b c">--</output>
+      <h6>Enter the approximate number of classes likely to be taken for the subject in this semester</h6>
+      Total number of periods : <input type="number" id="c" name="final" value="40"><br>
+      Remaining number of classes :<output name="y" for="a b c">--</output><br><br>
+      Maximum attendance that could be obtained :<output name="z" for="a b c">--</output><br><br>
+      Least no of classes that should be attended for avoiding FA :<output name="p" for="a b c">--</output><br><br>
+      <b>No of classes that could be bunked without FA-ing :<output name="q" for="a b c">--</output></b>
     </fieldset>
   </form>
   <!--
