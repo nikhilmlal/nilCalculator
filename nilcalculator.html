@@ -8,11 +8,11 @@
   "x.value =(parseInt(a.value)/parseInt(b.value))*100,
   y.value = parseInt(c.value)-parseInt(b.value),
   z.value = ((parseInt(a.value)+parseInt(y.value))/(parseInt(b.value)+parseInt(y.value)))*100,
-  p.value = check(a.value, (b.value)+(y.value))">
+  p.value = (.75*(parseInt(b.value)+parseInt(y.value)))-parseInt(a.value)">
     <fieldset>
       <legend>INPUT</legend>
-      Number of hours attended till now : <input type="number" name="hours" value="5" id="a">
-      Out of :<input type="number" name="total" value="10" id="b">
+      Number of hours attended till now : <input type="number" name="hours" value="30" id="a">
+      Out of :<input type="number" name="total" value="35" id="b">
     </fieldset>
     <fieldset>
       <legend>OUTPUT</legend>
@@ -23,17 +23,6 @@
       Least no of classes that should be attended for avoiding FA :<output name="p" for="a b c">--</output>
     </fieldset>
   </form>
-  <script lang="Javascript">
-  funtion check(var aa, var xx){
-    if((aa/xx)>=.75){
-      return 0;
-    }
-    else{
-      var yy = (.75*xx)-aa;
-      return yy;
-    }
-  }
-  </script>
   <!--
   <script lang="Javascript">
   var x = document.forms["calc"]["hours"].value;
