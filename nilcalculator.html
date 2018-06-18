@@ -3,8 +3,15 @@
 <head>
   <title>THE NIL CALCULATOR</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbWLcWW1sLuhaGLn3RLHTV8mBr_xVVnFgJND685DI2TWoGz23Xiw" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <div class="container-fluid" style="background-color:#f0f0f0">
   <h3>This is a simple attendance calculator</h3>
   <form method="post" name="calc" oninput=
   "validate_form(),validate_form2(),
@@ -74,7 +81,7 @@
       document.forms["calc"]["g"].value="You are already in the Safe-zone, no need to enter anymore classes.";
     }
     else if(f>e){
-      document.forms["calc"]["g"].value="You will get FA anyways, Good Luck next time.";
+      document.forms["calc"]["g"].value="You will get FA anyway, Good Luck next time.";
     }
     else{
       document.forms["calc"]["g"].value="You can be in the Safe-zone.";
@@ -82,29 +89,6 @@
     return true;
   }
   </script>
-  <!--
-  <script lang="Javascript">
-  var x = document.forms["calc"]["hours"].value;
-  var y = document.forms["calc"]["total"].value;
-  function run(){
-    document.write("Total number of classes :", x, "<br>");
-    document.write("No of classes attended  :", y, "<br>");
-    curr_att();
-    document
-    rem_class();
-    return true;
-  }
-  function curr_att(){
-    var z = (x/y)*100;
-    document.write("Current Attendance : ", z, "%", "<br>");
-    return true;
-  }
-  function rem_class(){
-    var z = 40-y;
-    document.write("Remaining classes : ", z, "<br>");
-    return true;
-  }
-  </script>
--->
+</div>
 </body>
 </html>
